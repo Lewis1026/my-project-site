@@ -58,21 +58,40 @@
       text-decoration: underline;
     }
 
-    .intro {
+    .intro, .calculator, .sitemap {
       padding: 2rem;
       background: white;
       text-align: center;
     }
 
-    .intro h2 {
+    .intro h2, .calculator h2, .sitemap h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
     }
 
-    .intro p {
+    .intro p, .calculator p {
       max-width: 800px;
       margin: 0 auto;
       color: #555;
+    }
+
+    .calculator input {
+      padding: 0.5rem;
+      margin: 0.5rem;
+      width: 200px;
+    }
+
+    .calculator button {
+      padding: 0.5rem 1rem;
+      margin-top: 1rem;
+      background-color: #333;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .calculator button:hover {
+      background-color: #555;
     }
 
     footer {
@@ -82,6 +101,20 @@
       color: white;
     }
   </style>
+  <script>
+    function calculateMortgage() {
+      const principal = parseFloat(document.getElementById('principal').value);
+      const interestRate = parseFloat(document.getElementById('interest').value) / 100 / 12;
+      const payments = parseInt(document.getElementById('years').value) * 12;
+      const x = Math.pow(1 + interestRate, payments);
+      const monthly = (principal * x * interestRate) / (x - 1);
+      if (!isNaN(monthly)) {
+        document.getElementById('result').textContent = 'Monthly Payment: $' + monthly.toFixed(2);
+      } else {
+        document.getElementById('result').textContent = 'Please enter valid values.';
+      }
+    }
+  </script>
 </head>
 
 <body>
@@ -100,6 +133,29 @@
   <section class="intro">
     <h2>About the Project</h2>
     <p>GreenView Residences offers 2, 3 & 4 BHK premium apartments located in a prime area. Enjoy top-tier amenities including a clubhouse, gym, swimming pool, landscaped gardens, and 24/7 security. Situated close to schools, shopping centers, and major transportation hubs, it is designed for families seeking a luxurious yet convenient lifestyle.</p>
+  </section>
+
+  <section class="calculator">
+    <h2>Mortgage Calculator</h2>
+    <p>Estimate your monthly mortgage payment:</p>
+    <input type="number" id="principal" placeholder="Loan Amount ($)">
+    <input type="number" id="interest" placeholder="Annual Interest Rate (%)">
+    <input type="number" id="years" placeholder="Loan Term (Years)">
+    <br>
+    <button onclick="calculateMortgage()">Calculate</button>
+    <p id="result"></p>
+  </section>
+
+  <section class="sitemap">
+    <h2>Sitemap</h2>
+    <ul style="list-style: none; padding: 0;">
+      <li><a href="#">Home</a></li>
+      <li><a href="#floorplan">Floor Plan</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#concept">Concept</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#">Mortgage Calculator</a></li>
+    </ul>
   </section>
 
   <footer>
