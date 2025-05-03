@@ -1,122 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Residential Project</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
-    }
-
-    body {
-      line-height: 1.6;
-      background-color: #f9f9f9;
-    }
-
-    header {
-      background: url('https://images.unsplash.com/photo-1570129477492-45c003edd2be') no-repeat center center/cover;
-      height: 100vh;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      max-width: 600px;
-    }
-
-    nav {
-      background: #333;
-      padding: 1rem;
-      display: flex;
-      justify-content: center;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .intro, .calculator, .sitemap {
-      padding: 2rem;
-      background: white;
-      text-align: center;
-    }
-
-    .intro h2, .calculator h2, .sitemap h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .intro p, .calculator p {
-      max-width: 800px;
-      margin: 0 auto;
-      color: #555;
-    }
-
-    .calculator input {
-      padding: 0.5rem;
-      margin: 0.5rem;
-      width: 200px;
-    }
-
-    .calculator button {
-      padding: 0.5rem 1rem;
-      margin-top: 1rem;
-      background-color: #333;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-
-    .calculator button:hover {
-      background-color: #555;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #333;
-      color: white;
-    }
-  </style>
-  <script>
-    function calculateMortgage() {
-      const principal = parseFloat(document.getElementById('principal').value);
-      const interestRate = parseFloat(document.getElementById('interest').value) / 100 / 12;
-      const payments = parseInt(document.getElementById('years').value) * 12;
-      const x = Math.pow(1 + interestRate, payments);
-      const monthly = (principal * x * interestRate) / (x - 1);
-      if (!isNaN(monthly)) {
-        document.getElementById('result').textContent = 'Monthly Payment: $' + monthly.toFixed(2);
-      } else {
-        document.getElementById('result').textContent = 'Please enter valid values.';
-      }
-    }
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
   <nav>
     <a href="#floorplan">Floor Plan</a>
@@ -132,7 +22,7 @@
 
   <section class="intro">
     <h2>About the Project</h2>
-    <p>GreenView Residences offers 2, 3 & 4 BHK premium apartments located in a prime area. Enjoy top-tier amenities including a clubhouse, gym, swimming pool, landscaped gardens, and 24/7 security. Situated close to schools, shopping centers, and major transportation hubs, it is designed for families seeking a luxurious yet convenient lifestyle.</p>
+    <p>GreenView Residences offers 2, 3 & 4 BHK premium apartments located in a prime area...</p>
   </section>
 
   <section class="calculator">
@@ -148,7 +38,7 @@
 
   <section class="sitemap">
     <h2>Sitemap</h2>
-    <ul style="list-style: none; padding: 0;">
+    <ul>
       <li><a href="#">Home</a></li>
       <li><a href="#floorplan">Floor Plan</a></li>
       <li><a href="#gallery">Gallery</a></li>
@@ -161,6 +51,7 @@
   <footer>
     &copy; 2025 GreenView Residences. All rights reserved.
   </footer>
-</body>
 
+  <script src="script.js"></script>
+</body>
 </html>
